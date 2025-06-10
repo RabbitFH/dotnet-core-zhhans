@@ -57,7 +57,7 @@ namespace DotNetCorezhHans.Base
             {
                 var dir = Path.GetDirectoryName(typeof(ConfigManagerBuilder).Assembly.Location);
                 var pdir = Directory.GetParent(dir).FullName;
-                var test = Path.Combine(pdir, "DotNetCoreZhHans.exe");
+                var test = Path.Combine(pdir, "net6.0-windows", "DotNetCoreZhHans.exe");
                 if (!File.Exists(test))
                 {
                     throw new Exception("创建配置文件失败!找不到引导程序");

@@ -43,6 +43,10 @@ namespace DotNetCorezhHans.Base
         /// 要扫描的路径集合
         /// </summary>
         public ObservableCollection<string> Directorys { get; set; }
+        /// <summary>
+        /// 要排除的路径集合
+        /// </summary>
+        public ObservableCollection<string> Exclude { get; set; } = new();
 
         public string[] Ignores { get; set; }
 

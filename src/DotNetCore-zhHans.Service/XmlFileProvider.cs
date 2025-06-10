@@ -45,7 +45,9 @@ namespace DotNetCoreZhHans.Service
              TestAndGetFiles(directory).Concat(TestAndGetDirectories(directory));
 
         private IEnumerable<string> TestAndGetFiles(string directory) =>
-             TryGet(directory, GetXmlFiles, Array.Empty<string>);
+            //处理排除目录
+            config.Exclude.Any(exc => directory.StartsWith(exc)) ? Enumerable.Empty<string>()
+            :TryGet(directory, GetXmlFiles, Array.Empty<string>);
 
         private IEnumerable<string> TestAndGetDirectories(string directory) =>
             TryGet(directory, GetDirectories, Array.Empty<string>);
